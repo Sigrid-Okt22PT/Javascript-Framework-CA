@@ -19,10 +19,10 @@ function Footer() {
               Contact us
             </Link>
             <Link
-              to="/contact"
+              to="/"
               className="text-sm text-gray-700 hover:text-gray-900 hover:underline"
             >
-              Contact us
+              Home
             </Link>
           </div>
         </nav>
