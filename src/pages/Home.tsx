@@ -1,35 +1,45 @@
-
+import { useEffect, useState } from "react";
+import { getProducts } from "../api/products";
+import ProductCard from "../components/products/ProductCard";
+import type { Product } from "../types/product";
 
 function Home() {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function loadProducts() {
+      try {
+        const data = await getProducts();
+        setProducts(data);
+      } catch {
+        setError("Something went wrong while loading products.");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadProducts();
+  }, []);
+
   return (
-    <main>
-      {/* Welcome section */}
-      <section className="bg-gray-100 px-6 py-16 text-center">
-        <h1 className="mb-4 text-4xl font-bold text-gray-900">
-          Welcome to our webshop
-        </h1>
+    <section className="mx-auto max-w-7xl px-6 py-12">
+      <h1 className="mb-8 text-3xl font-bold">Our Products</h1>
 
-        <p className="mx-auto max-w-2xl text-gray-600">
-          Discover our products and find something you'll love.
-        </p>
-      </section>
+      {loading && <p>Loading products...</p>}
 
-      {/* Products section */}
-      <section className="mx-auto max-w-7xl px-6 py-12">
-        <h2 className="mb-6 text-2xl font-semibold">
-          Our Products
-        </h2>
+      {error && <p className="text-red-600">{error}</p>}
 
-        {/* Product grid will go here */}
+      {!loading && !error && (
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <p className="text-gray-500">
-            Products coming soon...
-          </p>
+          {products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
         </div>
-      </section>
-    </main>
+      )}
+    </section>
   );
 }
 
 export default Home;
-
