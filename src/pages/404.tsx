@@ -13,7 +13,7 @@ function NotFound() {
 
       <Link
         to="/"
-        className="mt-6 rounded-lg bg-gray-900 px-6 py-3 text-white hover:bg-gray-700"
+        className="mt-6 bg-gray-900 px-6 py-3 text-white hover:bg-gray-700"
       >
         Back to homepage
       </Link>

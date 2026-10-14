@@ -1,9 +1,26 @@
-function ContactPage() {
-  return (
-    <section className="mx-auto max-w-xl px-6 py-12">
-      <h1 className="mb-8 text-3xl font-bold">Contact us</h1>
+import { useState } from "react";
+import type { FormEvent } from "react";
 
-      <form className="space-y-4">
+function ContactPage() {
+  const [success, setSuccess] = useState(false);
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setSuccess(true);
+    event.currentTarget.reset();
+  }
+
+  return (
+    <section className="mx-auto max-w-4xl space-y-8 px-6 py-12">
+      <h1 className="text-3xl font-bold">Contact us</h1>
+
+      {success && (
+        <p role="status" className="bg-lime p-4 text-navy">
+          Your form has been completed successfully!
+        </p>
+      )}
+
+      <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="name" className="mb-1 block">
             Full name
@@ -12,12 +29,11 @@ function ContactPage() {
             id="name"
             name="name"
             type="text"
+            minLength={3}
             required
-            className="w-full rounded-lg border border-gray-300 p-3"
+            className="mb-4 w-full border border-gray-300 p-3"
           />
-        </div>
 
-        <div>
           <label htmlFor="email" className="mb-1 block">
             Email
           </label>
@@ -26,30 +42,38 @@ function ContactPage() {
             name="email"
             type="email"
             required
-            className="w-full rounded-lg border border-gray-300 p-3"
+            className="mb-4 w-full border border-gray-300 p-3"
           />
-        </div>
-        <div>
+
           <label htmlFor="subject" className="mb-1 block">
             Subject
           </label>
           <input
             id="subject"
             name="subject"
-            type="subject"
+            type="text"
+            minLength={3}
             required
-            className="w-full rounded-lg border border-gray-300 p-3"
+            className="mb-4 w-full border border-gray-300 p-3"
           />
-        </div>
-        <div>
+
           <label htmlFor="content" className="mb-1 block">
-            Content
+            Message
           </label>
           <textarea
             name="content"
             id="content"
-            className="w-full rounded-lg border border-gray-300 p-3"
-          ></textarea>
+            minLength={3}
+            required
+            className="mb-4 w-full border border-gray-300 p-3"
+          />
+
+          <button
+            type="submit"
+            className="bg-yellow px-6 py-3 text-navy hover:bg-slate hover:text-white"
+          >
+            Send message
+          </button>
         </div>
       </form>
     </section>

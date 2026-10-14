@@ -21,16 +21,16 @@ function Header() {
 
           {/* Desktop navigation */}
           <div className="hidden items-center gap-8 md:flex">
-            <Link to="/" className="hover:text-gray-500">
+            <Link to="/" className="hover:text-slate">
               Home
             </Link>
-            <Link to="/contact" className="hover:text-gray-500">
+            <Link to="/contact" className="hover:text-slate">
               Contact
             </Link>
             <Link
               to="/checkout"
               aria-label="Go to checkout"
-              className="flex h-10 w-32 items-center justify-center rounded-lg bg-yellow text-navy hover:bg-lime"
+              className="flex h-10 w-32 items-center justify-center bg-yellow text-navy hover:bg-navy hover:text-lime"
             >
               <ShoppingCart size={22} />
               <span>Checkout</span>

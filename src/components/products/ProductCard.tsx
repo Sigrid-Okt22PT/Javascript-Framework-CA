@@ -10,28 +10,32 @@ interface ProductCardProps {
 function ProductCard({ product }: ProductCardProps) {
   const addItem = useCartStore((state) => state.addItem);
   return (
-    <article className="flex h-full flex-col rounded-lg border border-slate/20 bg-white p-4">
+    <article className="flex h-full flex-col bg-white transition duration-200 hover:shadow-lg">
       <Link to={`/product/${product.id}`}>
-        <img
-          src={product.image.url}
-          alt={product.image.alt || product.title}
-          className="h-56 w-full object-cover"
-        />
+        <div className="overflow-hidden ">
+          <img
+            src={product.image.url}
+            alt={product.image.alt || product.title}
+            className="aspect-square w-full object-cover transition duration-300 hover:scale-105"
+          />
+        </div>
       </Link>
 
-      <div className="flex flex-1 flex-col p-4">
+      <div className="flex flex-1 flex-col px-6 pt-4">
         <Link to={`/product/${product.id}`}>
-          <h3 className="text-lg font-semibold">{product.title}</h3>
+          <h3 className="text-base font-semibold text-navy">{product.title}</h3>
         </Link>
 
-        <div className="mt-auto flex items-center justify-between gap-3 pt-4">
-          <p className="font-medium">{product.discountedPrice} NOK</p>
+        <div className="mt-auto flex items-center justify-between gap-3 pt-1">
+          <p className="text-sm font-medium text-slate">
+            {product.discountedPrice} NOK
+          </p>
 
           <button
             type="button"
-            aria-label="Add to cart"
             onClick={() => addItem(product)}
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-yellow text-navy hover:bg-lime"
+            className="flex h-10 w-10 shrink-0 items-center justify-center bg-yellow text-navy transition hover:bg-navy hover:text-lime mb-4"
+            aria-label={`Add ${product.title} to cart`}
           >
             <ShoppingCartPlus size={22} />
           </button>

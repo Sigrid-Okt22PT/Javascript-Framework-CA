@@ -34,7 +34,7 @@ function ProductPage() {
     <section className="mx-auto max-w-6xl px-6 py-12">
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
         {/* Product image */}
-        <div className="overflow-hidden rounded-lg bg-gray-100">
+        <div className="overflow-hidden bg-gray-100">
           <img
             src={product.image.url}
             alt={product.image.alt || product.title}
@@ -54,7 +54,7 @@ function ProductPage() {
           <button
             type="button"
             onClick={() => addItem(product)}
-            className="rounded-lg bg-yellow px-6 py-3 font-semibold text-navy"
+            className="bg-yellow px-6 py-3 font-semibold text-navy"
           >
             Add to cart
           </button>

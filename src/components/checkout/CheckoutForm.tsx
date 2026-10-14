@@ -12,7 +12,7 @@ function CheckoutForm() {
           name="name"
           type="text"
           required
-          className="w-full rounded-lg border border-gray-300 p-3"
+          className="w-full border border-gray-300 p-3"
         />
       </div>
 
@@ -25,7 +25,7 @@ function CheckoutForm() {
           name="email"
           type="email"
           required
-          className="w-full rounded-lg border border-gray-300 p-3"
+          className="w-full border border-gray-300 p-3"
         />
       </div>
       <div>
@@ -37,13 +37,13 @@ function CheckoutForm() {
           name="address"
           type="address"
           required
-          className="w-full rounded-lg border border-gray-300 p-3"
+          className="w-full border border-gray-300 p-3"
         />
       </div>
 
       <button
         type="submit"
-        className="rounded-lg bg-gray-900 px-6 py-3 text-white hover:bg-gray-700"
+        className="bg-yellow px-6 py-3 text-navy hover:bg-gray-700"
       >
         Complete checkout
       </button>
