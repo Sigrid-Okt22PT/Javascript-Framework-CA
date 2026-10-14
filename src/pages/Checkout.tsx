@@ -1,10 +1,10 @@
 import CartItem from "../components/checkout/CartItem";
 import CartSummary from "../components/checkout/CartSummary";
 import CheckoutForm from "../components/checkout/CheckoutForm";
-import type { CartItemType } from "../types/cart";
+import { useCartStore } from "../stores/cartStore";
 
 function Checkout() {
-  const items: CartItemType[] = [];
+  const items = useCartStore((state) => state.items);
 
   return (
     <section className="mx-auto max-w-4xl space-y-8 px-6 py-12">

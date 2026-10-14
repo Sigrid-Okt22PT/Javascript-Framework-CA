@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ShoppingCart } from "lucide-react";
+import webshopLogo from "../../assets/webshop_logo.svg";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -11,11 +12,11 @@ function Header() {
 
   return (
     <header className="bg-white">
-      <nav className="mx-auto max-w-6xl px-6 py-4" aria-label="Main navigation">
+      <nav className="mx-auto max-w-6xl px-6 py-8" aria-label="Main navigation">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" onClick={closeMenu} className="text-2xl font-bold">
-            Sigrids shop!
+            <img src={webshopLogo} alt="WEBshop" className="h-10 w-auto" />
           </Link>
 
           {/* Desktop navigation */}
@@ -28,7 +29,8 @@ function Header() {
             </Link>
             <Link
               to="/checkout"
-              className="flex items-center gap-2 text-gray-800 hover:text-gray-500"
+              aria-label="Go to checkout"
+              className="flex h-10 w-32 items-center justify-center rounded-lg bg-yellow text-navy hover:bg-lime"
             >
               <ShoppingCart size={22} />
               <span>Checkout</span>
@@ -72,7 +74,8 @@ function Header() {
             onClick={closeMenu}
             className="py-2 hover:text-gray-500"
           >
-            Cart
+            <ShoppingCart size={22} />
+            Checkout
           </Link>
         </div>
       </nav>

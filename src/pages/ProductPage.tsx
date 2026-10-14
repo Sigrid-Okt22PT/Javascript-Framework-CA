@@ -2,12 +2,15 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProductById } from "../api/products";
 import type { Product } from "../types/product";
+import { useCartStore } from "../stores/cartStore";
 
 function ProductPage() {
   const { id } = useParams<{ id: string }>();
 
   const [product, setProduct] = useState<Product | null>(null);
   const [error, setError] = useState<string | null>(null);
+
+  const addItem = useCartStore((state) => state.addItem);
 
   useEffect(() => {
     if (!id) return;
@@ -48,6 +51,13 @@ function ProductPage() {
           </p>
 
           <p className="leading-relaxed text-gray-600">{product.description}</p>
+          <button
+            type="button"
+            onClick={() => addItem(product)}
+            className="rounded-lg bg-yellow px-6 py-3 font-semibold text-navy"
+          >
+            Add to cart
+          </button>
         </div>
       </div>
     </section>
