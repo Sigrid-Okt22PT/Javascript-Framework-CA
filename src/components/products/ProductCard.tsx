@@ -23,18 +23,20 @@ function ProductCard({ product }: ProductCardProps) {
 
       <div className="flex flex-1 flex-col px-6 pt-4">
         <Link to={`/product/${product.id}`}>
-          <h3 className="text-base font-semibold text-navy">{product.title}</h3>
+          <h3 className="text-base font-semibold text-primary">
+            {product.title}
+          </h3>
         </Link>
 
-        <div className="mt-auto flex items-center justify-between gap-3 pt-1">
-          <p className="text-sm font-medium text-slate">
+        <div className="mt-auto flex items-center justify-between gap-3">
+          <p className="text-md font-medium text-secondary">
             {product.discountedPrice} NOK
           </p>
 
           <button
             type="button"
             onClick={() => addItem(product)}
-            className="flex h-10 w-10 shrink-0 items-center justify-center bg-yellow text-navy transition hover:bg-navy hover:text-lime mb-4"
+            className="flex h-10 w-10 shrink-0 items-center justify-center bg-accent text-primary transition hover:bg-primary hover:text-light mb-4"
             aria-label={`Add ${product.title} to cart`}
           >
             <ShoppingCartPlus size={22} />

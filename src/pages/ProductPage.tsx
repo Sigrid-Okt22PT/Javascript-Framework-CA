@@ -54,7 +54,7 @@ function ProductPage() {
           <button
             type="button"
             onClick={() => addItem(product)}
-            className="bg-yellow px-6 py-3 font-semibold text-navy"
+            className="bg-accent px-6 py-3 font-semibold text-primary"
           >
             Add to cart
           </button>

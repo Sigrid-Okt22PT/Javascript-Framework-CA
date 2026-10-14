@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ShoppingCart } from "lucide-react";
-import webshopLogo from "../../assets/webshop_logo.svg";
+import Logo from "./Logo";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -16,21 +16,21 @@ function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" onClick={closeMenu} className="text-2xl font-bold">
-            <img src={webshopLogo} alt="WEBshop" className="h-10 w-auto" />
+            <Logo />
           </Link>
 
           {/* Desktop navigation */}
           <div className="hidden items-center gap-8 md:flex">
-            <Link to="/" className="hover:text-slate">
+            <Link to="/" className="hover:text-secondary">
               Home
             </Link>
-            <Link to="/contact" className="hover:text-slate">
+            <Link to="/contact" className="hover:text-secondary">
               Contact
             </Link>
             <Link
               to="/checkout"
               aria-label="Go to checkout"
-              className="flex h-10 w-32 items-center justify-center bg-yellow text-navy hover:bg-navy hover:text-lime"
+              className="flex h-10 w-32 items-center justify-center bg-accent text-primary hover:bg-primary hover:text-light"
             >
               <ShoppingCart size={22} />
               <span>Checkout</span>

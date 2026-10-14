@@ -4,11 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        navy: "#001D4A",
-        yellow: "#ECA400",
-        lime: "#EAF8BF",
-        slate: "#27476E",
-        teal: "#006992",
+        primary: "#103F45",
+        secondary: "#168A8A",
+        accent: "#FF8068",
+        light: "#E5F5F1",
+        background: "#FFF9F3",
       },
     },
   },

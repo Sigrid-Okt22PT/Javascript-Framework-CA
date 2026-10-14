@@ -10,7 +10,7 @@ function SearchBar({ search, setSearch }: SearchBarProps) {
       placeholder="Search products..."
       value={search}
       onChange={(event) => setSearch(event.target.value)}
-      className="w-full px-6 py-3 focus:border-teal focus:outline-none"
+      className="w-full px-6 py-3 focus:border-secondary focus:outline-none"
     />
   );
 }

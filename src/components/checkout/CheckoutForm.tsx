@@ -43,7 +43,7 @@ function CheckoutForm() {
 
       <button
         type="submit"
-        className="bg-yellow px-6 py-3 text-navy hover:bg-gray-700"
+        className="bg-accent px-6 py-3 text-primary hover:bg-gray-700"
       >
         Complete checkout
       </button>

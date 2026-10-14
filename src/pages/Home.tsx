@@ -32,15 +32,15 @@ function Home() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-6">
       {/* Search section */}
-      <div className="relative flex min-h-40 items-center justify-center overflow-hidden bg-navy px-6 py-10">
+      <div className="relative flex min-h-40 items-center justify-center overflow-hidden bg-primary px-6 py-10">
         {/* Yellow square */}
-        <div className="absolute left-8 top-6 h-64 w-64 rotate-45 bg-yellow"></div>
+        <div className="absolute left-8 top-6 h-64 w-64 rotate-45 bg-accent"></div>
         {/* Lime square */}
-        <div className="absolute right-0 top-0 h-64 w-64 rotate-45 bg-lime hidden sm:block"></div>
+        <div className="absolute right-0 top-0 h-64 w-64 rotate-45 bg-light hidden sm:block"></div>
         {/* Teal circle */}
-        <div className="absolute right-64 bottom-12 h-64 w-64 rounded-full bg-teal hidden md:block"></div>
+        <div className="absolute right-64 bottom-12 h-64 w-64 rounded-full bg-secondary hidden md:block"></div>
         {/* Slate circle */}
-        <div className="absolute left-64 top-12 h-64 w-64 rounded-full bg-slate"></div>
+        <div className="absolute left-64 top-12 h-64 w-64 rounded-full bg-secondary"></div>
 
         {/* Search bar */}
         <div className="relative z-10 w-full max-w-4xl">

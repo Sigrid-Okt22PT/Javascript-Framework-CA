@@ -15,14 +15,14 @@ function ContactPage() {
       <h1 className="text-3xl font-bold">Contact us</h1>
 
       {success && (
-        <p role="status" className="bg-lime p-4 text-navy">
+        <p role="status" className="bg-light p-4 text-primary">
           Your form has been completed successfully!
         </p>
       )}
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="name" className="mb-1 block">
+          <label htmlFor="name" className="mb-1 block text-secondary">
             Full name
           </label>
           <input
@@ -31,10 +31,10 @@ function ContactPage() {
             type="text"
             minLength={3}
             required
-            className="mb-4 w-full border border-gray-300 p-3"
+            className="mb-4 w-full border border-light p-3"
           />
 
-          <label htmlFor="email" className="mb-1 block">
+          <label htmlFor="email" className="mb-1 block text-secondary">
             Email
           </label>
           <input
@@ -42,10 +42,10 @@ function ContactPage() {
             name="email"
             type="email"
             required
-            className="mb-4 w-full border border-gray-300 p-3"
+            className="mb-4 w-full border border-light p-3"
           />
 
-          <label htmlFor="subject" className="mb-1 block">
+          <label htmlFor="subject" className="mb-1 block text-secondary">
             Subject
           </label>
           <input
@@ -54,10 +54,10 @@ function ContactPage() {
             type="text"
             minLength={3}
             required
-            className="mb-4 w-full border border-gray-300 p-3"
+            className="mb-4 w-full border border-light p-3"
           />
 
-          <label htmlFor="content" className="mb-1 block">
+          <label htmlFor="content" className="mb-1 block text-secondary">
             Message
           </label>
           <textarea
@@ -65,12 +65,12 @@ function ContactPage() {
             id="content"
             minLength={3}
             required
-            className="mb-4 w-full border border-gray-300 p-3"
+            className="mb-4 w-full border border-lighty p-3"
           />
 
           <button
             type="submit"
-            className="bg-yellow px-6 py-3 text-navy hover:bg-slate hover:text-white"
+            className="bg-accent px-6 py-3 text-primary hover:bg-secondary hover:text-white"
           >
             Send message
           </button>
