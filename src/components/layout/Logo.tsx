@@ -3,7 +3,7 @@ function Logo() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 274.86 55.9"
-      className="block h-10 w-48"
+      className="block h-auto w-32 sm:w-36 md:w-44 lg:w-48"
       role="img"
       aria-label="WEBshop"
     >

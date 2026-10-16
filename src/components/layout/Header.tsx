@@ -19,13 +19,17 @@ function Header() {
       <nav className="mx-auto max-w-6xl px-6 py-4" aria-label="Main navigation">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" onClick={closeMenu} className="text-2xl font-bold">
+          <Link to="/" onClick={closeMenu} aria-label="Go to homepage">
             <Logo />
           </Link>
 
           {/* Desktop navigation */}
           <div className="hidden items-center gap-8 md:flex">
-            <Link to="/" className="hover:text-secondary">
+            <Link
+              to="/"
+              className="hover:text-secondary"
+              aria-label="Go to homepage"
+            >
               Home
             </Link>
             <Link to="/contact" className="hover:text-secondary">
@@ -47,16 +51,32 @@ function Header() {
           </div>
 
           {/* Mobile menu button */}
-          <button
-            type="button"
-            className="rounded p-2 md:hidden"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={menuOpen}
-            aria-controls="mobile-menu"
-          >
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="ml-auto flex items-center gap-2 md:hidden">
+            <Link
+              to="/checkout"
+              onClick={closeMenu}
+              aria-label="Go to checkout"
+              className="flex items-center gap-1 rounded p-2 text-primary"
+            >
+              {cartCount > 0 && (
+                <span className="flex min-w-6 items-center justify-center rounded-full bg-accent px-1 text-primary">
+                  {cartCount}
+                </span>
+              )}
+              <ShoppingCart size={24} />
+            </Link>
+
+            <button
+              type="button"
+              className="rounded p-2 text-primary"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
+            >
+              {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile navigation */}
@@ -66,25 +86,22 @@ function Header() {
             menuOpen ? "flex" : "hidden"
           }`}
         >
-          <Link to="/" onClick={closeMenu} className="py-2 hover:text-gray-500">
+          <Link
+            to="/"
+            onClick={closeMenu}
+            aria-label="Go to homepage"
+            className="py-2 flex items-center gap-2 text-primary justify-center"
+          >
             Home
           </Link>
 
           <Link
             to="/contact"
             onClick={closeMenu}
-            className="py-2 hover:text-gray-500"
+            aria-label="Go to contact page"
+            className="py-2 flex items-center gap-2 text-primary justify-center"
           >
             Contact
-          </Link>
-
-          <Link
-            to="/checkout"
-            onClick={closeMenu}
-            className="py-2 hover:text-gray-500"
-          >
-            <ShoppingCart size={22} />
-            Checkout
           </Link>
         </div>
       </nav>
