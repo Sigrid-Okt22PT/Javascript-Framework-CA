@@ -1,15 +1,29 @@
-function CheckoutSuccess() {
-  return (
-    <main>
-      {/* Placeholder section */}
-      <section className="bg-gray-100 px-6 py-16 text-center">
-        <h1 className="mb-4 text-4xl font-bold text-gray-900">
-          Content coming
-        </h1>
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useCartStore } from "../stores/cartStore";
 
-        <p className="mx-auto max-w-2xl text-gray-600">Under development.</p>
-      </section>
-    </main>
+function CheckoutSuccess() {
+  const clearCart = useCartStore((state) => state.clearCart);
+
+  useEffect(() => {
+    clearCart();
+  }, [clearCart]);
+
+  return (
+    <section className="mx-auto max-w-4xl px-6 py-12 text-center">
+      <h1 className="mb-4 text-3xl font-bold text-primary">Order completed!</h1>
+
+      <p className="mb-8">
+        Thank you for your order. Your checkout was successful.
+      </p>
+
+      <Link
+        to="/"
+        className="inline-block bg-accent px-6 py-3 text-primary transition hover:bg-secondary hover:text-light"
+      >
+        Continue shopping
+      </Link>
+    </section>
   );
 }
 

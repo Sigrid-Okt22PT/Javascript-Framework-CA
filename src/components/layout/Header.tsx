@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ShoppingCart } from "lucide-react";
+import { useCartStore } from "../../stores/cartStore";
 import Logo from "./Logo";
 
 function Header() {
@@ -9,10 +10,13 @@ function Header() {
   function closeMenu() {
     setMenuOpen(false);
   }
+  const items = useCartStore((state) => state.items);
+
+  const cartCount = items.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <header className="bg-white">
-      <nav className="mx-auto max-w-6xl px-6 py-8" aria-label="Main navigation">
+    <header className="bg-white fixed top-0 left-0 right-0 z-50 shadow-md">
+      <nav className="mx-auto max-w-6xl px-6 py-4" aria-label="Main navigation">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" onClick={closeMenu} className="text-2xl font-bold">
@@ -32,6 +36,11 @@ function Header() {
               aria-label="Go to checkout"
               className="flex h-10 w-32 items-center justify-center bg-accent text-primary hover:bg-primary hover:text-light"
             >
+              {cartCount > 0 && (
+                <span className="flex min-w-6 items-center justify-center px-1 rounded-full bg-background font-bold text-accent">
+                  {cartCount}
+                </span>
+              )}
               <ShoppingCart size={22} />
               <span>Checkout</span>
             </Link>

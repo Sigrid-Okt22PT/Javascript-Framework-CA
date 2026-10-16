@@ -1,26 +1,47 @@
+import { useCartStore } from "../../stores/cartStore";
 import type { CartItemType } from "../../types/cart";
+import { TrashIcon } from "lucide-react";
 
 interface CartItemProps {
   item: CartItemType;
 }
 
 function CartItem({ item }: CartItemProps) {
+  const removeItem = useCartStore((state) => state.removeItem);
+  const updateQuantity = useCartStore((state) => state.updateQuantity);
+
   return (
-    <article className="flex items-center gap-4 border-b border-gray-200 py-4">
-      <img
-        src={item.product.image.url}
-        alt={item.product.image.alt || item.product.title}
-        className="h-24 w-24 rounded-lg object-cover"
-      />
-
+    <div className="flex items-center justify-between border-b py-6">
       <div>
-        <h2 className="font-semibold">{item.product.title}</h2>
+        <h3 className="font-semibold">{item.product.title}</h3>
 
-        <p>{item.product.discountedPrice} NOK</p>
-
-        <p>Quantity: {item.quantity}</p>
+        <p className="text-sm text-secondary">
+          {item.product.discountedPrice.toFixed(2)} NOK
+        </p>
       </div>
-    </article>
+
+      <div className="flex items-center gap-4">
+        <button
+          type="button"
+          onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
+        >
+          -
+        </button>
+
+        <span>{item.quantity}</span>
+
+        <button
+          type="button"
+          onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
+        >
+          +
+        </button>
+
+        <button type="button" onClick={() => removeItem(item.product.id)}>
+          <TrashIcon size={20} className="text-red-500 hover:text-red-700" />
+        </button>
+      </div>
+    </div>
   );
 }
 

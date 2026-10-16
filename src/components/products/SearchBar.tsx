@@ -6,6 +6,7 @@ interface SearchBarProps {
 function SearchBar({ search, setSearch }: SearchBarProps) {
   return (
     <input
+      id="search"
       type="search"
       placeholder="Search products..."
       value={search}
