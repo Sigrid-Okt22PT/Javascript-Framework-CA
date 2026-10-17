@@ -13,7 +13,12 @@ function Checkout() {
       {/* Cart items */}
       <div>
         <h2 className="mb-4 text-xl font-semibold">Your cart</h2>
-
+        <div className="hidden grid-cols-6 items-center gap-4 border-b pb-3 text-sm font-semibold text-gray-600 md:grid">
+          <span className="col-span-3">Item</span>
+          <span>Price</span>
+          <span>Quantity</span>
+          <span className="text-right">Total price</span>
+        </div>
         {items.length === 0 ? (
           <p>Your cart is empty.</p>
         ) : (

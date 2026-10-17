@@ -47,7 +47,10 @@ function ProductPage() {
           <h1 className="text-3xl font-bold">{product.title}</h1>
 
           <p className="text-2xl font-semibold">
-            {product.discountedPrice} NOK
+            {product.discountedPrice} NOK{" "}
+            <span className="text-sm font-normal line-through">
+              {product.price} NOK
+            </span>
           </p>
 
           <p className="leading-relaxed text-gray-600">{product.description}</p>
