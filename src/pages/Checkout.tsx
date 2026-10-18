@@ -29,8 +29,8 @@ function Checkout() {
       {/* Order summary */}
       <CartSummary items={items} />
 
-      {/* Checkout form */}
-      <CheckoutForm />
+      {/* Checkout form (only if cart is not empty) */}
+      {items.length > 0 && <CheckoutForm />}
     </section>
   );
 }
