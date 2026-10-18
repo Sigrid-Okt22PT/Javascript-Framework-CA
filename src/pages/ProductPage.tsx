@@ -80,7 +80,7 @@ function ProductPage() {
           <button
             type="button"
             onClick={() => addItem(product)}
-            className="bg-accent px-6 py-3 font-semibold text-primary"
+            className="px-6 py-3 font-semibold bg-accent text-primary transition hover:bg-primary hover:text-light"
           >
             Add to cart
           </button>
