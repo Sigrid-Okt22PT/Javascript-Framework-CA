@@ -9,6 +9,7 @@ function SearchBar({ search, setSearch }: SearchBarProps) {
       id="search"
       type="search"
       placeholder="Search products..."
+      aria-label="Search products"
       value={search}
       onChange={(event) => setSearch(event.target.value)}
       className="w-full px-6 py-3 focus:border-secondary focus:outline-none"

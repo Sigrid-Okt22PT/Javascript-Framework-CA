@@ -28,8 +28,21 @@ function ProductPage() {
     fetchProduct();
   }, [id]);
 
-  if (error) return <p>{error}</p>;
-  if (!product) return <p>Loading product...</p>;
+  if (error) {
+    return (
+      <section className="mx-auto max-w-6xl px-6 py-12">
+        <p className="text-center text-red-600">{error}</p>
+      </section>
+    );
+  }
+
+  if (!product) {
+    return (
+      <section className="mx-auto max-w-6xl px-6 py-12">
+        <p className="text-center text-gray-600">Loading product...</p>
+      </section>
+    );
+  }
 
   return (
     <section className="mx-auto max-w-6xl px-6 py-12">
@@ -47,12 +60,12 @@ function ProductPage() {
         <div className="flex flex-col gap-6">
           <h1 className="text-3xl font-bold">{product.title}</h1>
 
-          <p className="text-2xl font-semibold">
+          <h2 className="text-2xl font-semibold">
             {product.discountedPrice} NOK{" "}
             <span className="text-sm font-normal line-through">
               {product.price} NOK
             </span>
-          </p>
+          </h2>
 
           <p className="leading-relaxed text-gray-600">{product.description}</p>
           <RatingStars rating={product.rating} />

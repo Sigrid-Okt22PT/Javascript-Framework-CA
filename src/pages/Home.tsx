@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { getProducts } from "../api/products";
 import ProductCard from "../components/products/ProductCard";
 import SearchBar from "../components/products/SearchBar";
+import Sorting from "../components/products/Sorting";
 import type { Product } from "../types/product";
+import { getDiscountPercentage } from "../utils/discount";
 
 function Home() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -25,9 +27,34 @@ function Home() {
     loadProducts();
   }, []);
 
+  const [sortBy, setSortBy] = useState("default");
+
+  // Filter products based on search query
   const filteredProducts = products.filter((product) =>
     product.title.toLowerCase().includes(search.toLowerCase()),
   );
+
+  // Sort products based on selected criteria
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
+    switch (sortBy) {
+      case "price-asc":
+        return a.discountedPrice - b.discountedPrice;
+      case "price-desc":
+        return b.discountedPrice - a.discountedPrice;
+      case "rating-desc":
+        return b.rating - a.rating;
+      case "title-desc":
+        return b.title.localeCompare(a.title);
+      case "discount-desc":
+        return (
+          getDiscountPercentage(b.price, b.discountedPrice) -
+          getDiscountPercentage(a.price, a.discountedPrice)
+        );
+
+      default:
+        return 0;
+    }
+  });
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-6">
@@ -48,7 +75,11 @@ function Home() {
         </div>
       </div>
 
-      <h1 className="mb-8 text-3xl font-bold pt-6">Our Products</h1>
+      <div className="flex flex-wrap items-center justify-between gap-4 py-6">
+        <h1 className="text-3xl font-bold text-primary">Our Products</h1>
+
+        <Sorting sortBy={sortBy} setSortBy={setSortBy} />
+      </div>
 
       {loading && <p>Loading products...</p>}
 
@@ -61,7 +92,7 @@ function Home() {
             <p>No products found.</p>
           ) : (
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {filteredProducts.map((product) => (
+              {sortedProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>

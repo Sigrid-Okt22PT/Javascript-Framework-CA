@@ -72,7 +72,7 @@ function CartItem({ item }: CartItemProps) {
           aria-label={`Remove ${product.title} from cart`}
           className="rounded p-2 hover:bg-gray-100"
         >
-          <TrashIcon size={20} className="text-red-500" />
+          <TrashIcon size={20} className="text-red-800" />
         </button>
       </div>
 
