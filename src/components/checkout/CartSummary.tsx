@@ -35,7 +35,7 @@ function CartSummary({ items }: CartSummaryProps) {
         {discount > 0 && (
           <div className="flex items-center justify-between gap-4">
             <span>Discount</span>
-            <span className="text-red-600">-{discount.toFixed(2)} NOK</span>
+            <span className="text-red-800">-{discount.toFixed(2)} NOK</span>
           </div>
         )}
 

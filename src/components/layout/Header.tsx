@@ -26,13 +26,10 @@ function Header() {
           {/* Desktop navigation */}
           <div className="hidden items-center gap-8 md:flex">
             <Link
-              to="/"
+              to="/contact"
               className="hover:text-secondary"
-              aria-label="Go to homepage"
+              aria-label="Go to contact page"
             >
-              Home
-            </Link>
-            <Link to="/contact" className="hover:text-secondary">
               Contact
             </Link>
             <Link
@@ -41,7 +38,7 @@ function Header() {
               className="flex h-10 w-32 items-center transition justify-center bg-accent text-primary hover:bg-primary hover:text-light"
             >
               {cartCount > 0 && (
-                <span className="flex min-w-6 items-center justify-center px-1 rounded-full bg-background font-bold text-accent">
+                <span className="flex min-w-6 items-center justify-center px-1 rounded-full bg-white font-bold text-primary mr-2">
                   {cartCount}
                 </span>
               )}
