@@ -106,6 +106,16 @@ function Home() {
         <Sorting sortBy={sortBy} setSortBy={setSortBy} />
       </div>
 
+      {/* Loading and error messages */}
+      {loading && <p role="status">Loading products...</p>}
+
+      {error && (
+        <p role="alert" className="text-red-600">
+          {error}
+        </p>
+      )}
+
+      {/* Product grid */}
       {!loading &&
         !error &&
         (sortedProducts.length === 0 ? (

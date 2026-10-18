@@ -38,6 +38,9 @@ function ProductCard({ product }: ProductCardProps) {
           <p className="text-md font-medium text-primary">
             {product.discountedPrice} NOK
           </p>
+          <p className="text-sm font-normal line-through text-secondary">
+            {product.price} NOK
+          </p>
 
           <button
             type="button"
