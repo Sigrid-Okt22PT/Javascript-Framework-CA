@@ -1,6 +1,6 @@
 # Javascript Framework CA – Online Store
 
-![image](https://sigrid-okt22pt-semester-project-2.netlify.app/assets/images/screenshot_webshop.png)
+![image](./src/assets/images/screenshot_webshop.png)
 
 View the hosted website at: [\[javascript-framework-ca-sigrid.netlify.app\]](https://javascript-framework-ca-sigrid.netlify.app/)
 
