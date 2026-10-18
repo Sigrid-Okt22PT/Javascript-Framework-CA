@@ -1,6 +1,7 @@
 import { useCartStore } from "../../stores/cartStore";
 import type { CartItemType } from "../../types/cart";
 import { TrashIcon } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface CartItemProps {
   item: CartItemType;
@@ -18,7 +19,10 @@ function CartItem({ item }: CartItemProps) {
   return (
     <div className="grid grid-cols-2 items-center gap-4 border-b py-6 md:grid-cols-5">
       {/* Product */}
-      <div className="flex min-w-0 items-center gap-3 md:col-span-2">
+      <Link
+        className="flex min-w-0 items-center gap-3 md:col-span-2"
+        to={`/product/${product.id}`}
+      >
         <img
           src={product.image.url}
           alt={product.image.alt || product.title}
@@ -26,11 +30,11 @@ function CartItem({ item }: CartItemProps) {
         />
 
         <h3 className="min-w-0 font-semibold">{product.title}</h3>
-      </div>
+      </Link>
 
       {/* Unit price */}
       <div className="text-right">
-        <p className="font-semibold text-primary">
+        <p className="font-semibold text-gray-600 ">
           {product.discountedPrice.toFixed(2)} NOK
         </p>
 

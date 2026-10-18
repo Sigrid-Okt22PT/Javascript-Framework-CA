@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getProductById } from "../api/products";
 import type { Product } from "../types/product";
 import { useCartStore } from "../stores/cartStore";
+import RatingStars from "../components/products/Ratings";
 
 function ProductPage() {
   const { id } = useParams<{ id: string }>();
@@ -54,6 +55,7 @@ function ProductPage() {
           </p>
 
           <p className="leading-relaxed text-gray-600">{product.description}</p>
+          <RatingStars rating={product.rating} />
           <button
             type="button"
             onClick={() => addItem(product)}

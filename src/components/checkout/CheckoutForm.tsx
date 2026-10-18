@@ -7,11 +7,15 @@ function CheckoutForm() {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    navigate("/checkout/success");
-  }
+    const formData = new FormData(event.currentTarget);
+    const email = formData.get("email") as string;
 
+    navigate("/checkout/success", {
+      state: { email },
+    });
+  }
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-6 py-10">
       <h2 className="text-xl font-semibold">Customer information</h2>
 
       <div>
@@ -43,27 +47,69 @@ function CheckoutForm() {
       </div>
 
       <div>
-        <label htmlFor="address" className="mb-1 block">
-          Address
+        <label htmlFor="addressLine1" className="mb-1 block">
+          street address
         </label>
         <input
-          id="address"
-          name="address"
+          id="addressLine1"
+          name="Street address"
           type="text"
           required
-          autoComplete="street-address"
+          autoComplete="address-line1"
           className="w-full border border-light p-3"
         />
+      </div>
+      <div>
+        <label htmlFor="addressLine2" className="mb-1 block">
+          Apartment / address line 2{" "}
+          <span className="text-gray-400">(optional)</span>
+        </label>
+        <input
+          id="addressLine2"
+          name="Apartment / address line 2"
+          type="text"
+          autoComplete="address-line2"
+          className="w-full border border-light p-3"
+        />
+      </div>
+      {/* Postcode and City */}
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label htmlFor="postcode" className="mb-1 block">
+            Postcode
+          </label>
+          <input
+            id="postcode"
+            name="postcode"
+            type="text"
+            required
+            autoComplete="postal-code"
+            className="w-full border border-light p-3"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="city" className="mb-1 block">
+            City
+          </label>
+          <input
+            id="city"
+            name="city"
+            type="text"
+            required
+            autoComplete="address-level2"
+            className="w-full border border-light p-3"
+          />
+        </div>
       </div>
 
       <button
         type="submit"
-        className="bg-accent px-6 py-3 text-primary transition hover:bg-secondary hover:text-light"
+        className="bg-accent px-6 py-4 text-primary transition hover:bg-secondary hover:text-light"
       >
         Complete checkout
       </button>
     </form>
   );
 }
-
 export default CheckoutForm;

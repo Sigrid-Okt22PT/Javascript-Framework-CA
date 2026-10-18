@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import type { Product } from "../../types/product";
 import { ShoppingCartPlus } from "lucide-react";
 import { useCartStore } from "../../stores/cartStore";
+import RatingStars from "./Ratings";
 
 interface ProductCardProps {
   product: Product;
@@ -27,6 +28,7 @@ function ProductCard({ product }: ProductCardProps) {
             {product.title}
           </h3>
         </Link>
+        <RatingStars rating={product.rating} />
 
         <div className="mt-auto flex items-center justify-between gap-3">
           <p className="text-md font-medium text-secondary">

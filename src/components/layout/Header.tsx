@@ -38,7 +38,7 @@ function Header() {
             <Link
               to="/checkout"
               aria-label="Go to checkout"
-              className="flex h-10 w-32 items-center justify-center bg-accent text-primary hover:bg-primary hover:text-light"
+              className="flex h-10 w-32 items-center transition justify-center bg-accent text-primary hover:bg-primary hover:text-light"
             >
               {cartCount > 0 && (
                 <span className="flex min-w-6 items-center justify-center px-1 rounded-full bg-background font-bold text-accent">
