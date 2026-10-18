@@ -18,7 +18,7 @@ function DiscountSticker({
   }
 
   return (
-    <div className="absolute right-2 top-2 flex h-10 w-10 items-center justify-center rounded-full bg-accent text-sm font-bold text-primary">
+    <div className="absolute right-2 top-2 flex h-12 w-12 items-center justify-center rounded-full bg-accent text-sm font-bold text-primary">
       {discountPercentage}%
     </div>
   );

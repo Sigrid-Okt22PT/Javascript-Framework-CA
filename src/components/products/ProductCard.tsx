@@ -43,7 +43,7 @@ function ProductCard({ product }: ProductCardProps) {
             type="button"
             onClick={() => addItem(product)}
             className="mb-4 flex h-10 w-10 shrink-0 items-center justify-center bg-accent text-primary transition hover:bg-primary hover:text-light"
-            aria-label={`Add ${product.title} to cart`}
+            aria-label={`Add ${product.title} directly to cart`}
           >
             <ShoppingCartPlus size={22} />
           </button>
