@@ -6,6 +6,7 @@ import { useCartStore } from "../stores/cartStore";
 import RatingStars from "../components/products/Ratings";
 import Review from "../components/products/Reviews";
 import DiscountSticker from "../components/products/DiscountSticker";
+import ProductTags from "../components/products/ProductTags";
 
 function ProductPage() {
   const { id } = useParams<{ id: string }>();
@@ -74,6 +75,7 @@ function ProductPage() {
           </h2>
 
           <p className="leading-relaxed text-gray-600">{product.description}</p>
+          <ProductTags tags={product.tags} />
           <RatingStars rating={product.rating} />
           <button
             type="button"
