@@ -1,5 +1,7 @@
 # Javascript Framework CA – Online Store
 
+![image](https://sigrid-okt22pt-semester-project-2.netlify.app/assets/images/screenshot_webshop.png)
+
 View the hosted website at: [\[javascript-framework-ca-sigrid.netlify.app\]](https://javascript-framework-ca-sigrid.netlify.app/)
 
 ## Description
@@ -85,6 +87,24 @@ Run linting with:
 
 ```bash
 npm run lint
+```
+
+## Testing
+
+The project uses Vitest and React Testing Library to test form behaviour and user interactions, following the examples from the course lessons.
+
+The tests cover the contact form's initial rendering and successful submission. The checkout tests check navigation to the success page, displaying the customer's email in success page.
+
+To run the tests in watch mode:
+
+```bash
+npm run test
+```
+
+To run the tests once:
+
+```bash
+npx vitest run
 ```
 
 ## Usage

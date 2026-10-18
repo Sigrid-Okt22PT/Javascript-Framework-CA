@@ -48,7 +48,7 @@ function CheckoutForm() {
 
       <div>
         <label htmlFor="addressLine1" className="mb-1 block">
-          street address
+          Street address
         </label>
         <input
           id="addressLine1"
@@ -105,6 +105,7 @@ function CheckoutForm() {
 
       <button
         type="submit"
+        name="completeCheckout"
         className="bg-accent px-6 py-4 text-primary transition hover:bg-secondary hover:text-light"
       >
         Complete checkout
