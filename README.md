@@ -1,75 +1,131 @@
-# React + TypeScript + Vite
+# Javascript Framework CA – Online Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+View the hosted website at: [\[javascript-framework-ca-sigrid.netlify.app\]](https://javascript-framework-ca-sigrid.netlify.app/)
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This is a responsive online webshop developed as part of the **JavaScript Frameworks Course Assignment** at Noroff.
 
-## React Compiler
+The goal of this project is to build a functional frontend webshop using React and TypeScript, applying the concepts learned throughout the course.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Users can browse products, view product details, add items to their shopping cart, adjust quantities, and complete a simulated checkout.
 
-## Expanding the ESLint configuration
+Product data is retrieved from the **Noroff Online Shop API**. This project focuses on frontend development and does not include real payments or order processing.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Table of Contents
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- [Description](#description)
+- [Built With](#built-with)
+- [Setup and Installation](#setup-and-installation)
+- [Code Quality](#code-quality)
+- [Usage](#usage)
+- [Planning & Design](#planning--design)
+- [License](#license)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Built With
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- React Router
+- Zustand
+- Noroff Online Shop API
+- ESLint
+- Node.js & npm
+- Netlify
 
+## Setup and Installation
+
+To set up and run this project locally, follow these steps:
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Sigrid-Okt22PT/Javascript-Framework-CA.git
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Navigate to the project directory
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+cd Javascript-Framework-CA
 ```
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+### 4. Start the development server
+
+```bash
+npm run dev
+```
+
+### 5. Open the website
+
+Open the local URL displayed in your terminal, usually:
+
+```text
+http://localhost:5173
+```
+
+### 6. Build for production
+
+```bash
+npm run build
+```
+
+## Code Quality
+
+This project uses ESLint to help maintain consistent code quality and catch common errors during development.
+
+Run linting with:
+
+```bash
+npm run lint
+```
+
+## Usage
+
+### Product Browsing
+
+- Browse products on the homepage
+- View individual product details
+- See product prices, discounts, and ratings
+- Search for products
+
+### Shopping Cart
+
+- Add products to the shopping cart
+- Increase or decrease product quantities
+- Remove products from the cart
+- View the total cart price
+
+### Checkout
+
+- Enter customer information
+- Complete a simulated checkout
+- View an order confirmation page
+
+### Contact
+
+- Access the contact form
+- Submit information using validated form fields
+
+## Planning & Design
+
+The project follows the technical requirements defined in the course assignment:
+
+- **Frontend:** React and TypeScript
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS
+- **Routing:** React Router
+- **State Management:** Zustand
+- **API:** Noroff Online Shop API
+- **Hosting:** Netlify
+
+## About this Project
+
+This project is for educational use.
